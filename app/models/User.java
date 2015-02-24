@@ -11,7 +11,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class User extends Model{
+public class User extends Person{
     public Integer id;
     @Id
     @Constraints.Required

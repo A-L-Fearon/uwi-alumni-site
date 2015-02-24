@@ -30,11 +30,17 @@ public class LoginCtrl extends Controller {
             session("email" , log.email);//boundform.get().email);
             session("username" , found.username);
             session("userid", found.userid.toString());
-            return redirect(controllers.routes.Application.landing());
+            return redirect(controllers.routes.Application.home());
         } else {
             flash("error", String.format("Invalid user or password"));
             return badRequest(login.render(boundform));
         }
+    }
+
+    public static Result logout() {
+        session().clear();
+        flash("success", "You've been logged out");
+        return redirect(controllers.routes.Application.landing());
     }
 
 }

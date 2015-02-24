@@ -15,4 +15,7 @@ public class Application extends Controller {
         return ok(landing.render("Your new application is ready."));
     }
 
+    public static Result home(){
+        return ok(home.render());
+    }
 }

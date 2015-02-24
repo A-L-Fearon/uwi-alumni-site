@@ -16,4 +16,7 @@ POST /signup                        controllers.SignUp.save()
 
 
 GET /login                          controllers.LoginCtrl.login()
-POST /auth                         controllers.LoginCtrl.authenticate()
+POST /auth                          controllers.LoginCtrl.authenticate()
+GET /logout                         controllers.LoginCtrl.logout()
+
+GET /home                           controllers.Application.home()
