@@ -1,0 +1,100 @@
+@(userForm: Form[User])
+@import helper._
+@import helper.twitterBootstrap._
+
+@main("LMS Sign Up") {
+
+<body class="register-page">
+
+<section class="content register-page">
+
+    <div class="content-liquid">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="register-page-container">
+                    @helper.form(action = routes.SignUp.save()){
+                        <div class="boxed animated flipInY">
+                            <div class="inner">
+
+                                <div class="login-title text-center">
+                                    <h4>Create new account</h4>
+                                    @if(flash.containsKey("error")){
+                                    <div class="notibar msgerror">
+                                        @flash.get("error")
+                                    </div>
+                                    }
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <!-- Username Input -->
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                            <input type="text" class="form-control" placeholder="Username" name="username"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <!-- E-mail Input -->
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            <input type="text" class="form-control" placeholder="E-Mail" name="email"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <!-- Password Input -->
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <input type="password" class="form-control" placeholder="Password" name="password" />
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="col-md-12">
+                                         Password Input
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                            <input type="password" class="form-control" placeholder="Password Repeat" />
+                                        </div>
+                                    </div> -->
+
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <!-- URL Input -->
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+                                            <input type="text" class="form-control" placeholder="ID Number" name="userid" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br/>
+                                <input type="submit" class="btn btn-lg btn-success" value="Register your account" name="submit" id="submit" />
+
+                                <p class="footer">We respect your privacy. We hate spam as much as you do.</p>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+
+}

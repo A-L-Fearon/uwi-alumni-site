@@ -1,0 +1,63 @@
+@(logForm: Form[Login])
+@main("LMS login") {
+
+
+<body class="login-page">
+
+<section class="content login-page">
+
+    <div class="content-liquid">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="login-page-container">
+                    @helper.form(action = routes.LoginCtrl.authenticate()){
+                        <div class="boxed animated flipInY">
+                            <div class="inner">
+
+                                <div class="login-title text-center">
+                                    <h4>Login to your account</h4>
+                                    <h5>We're happy to see you return</h5>
+                                    @if(flash.containsKey("error")){
+                                    <div class="notibar msgerror">
+                                        @flash.get("error")
+                                    </div>
+                                    }
+                                </div>
+
+                                <div class="input-group">
+                                    <i class="fa fa-user"></i>
+                                    @helper.inputText(logForm("email"), '_label -> "", '_showConstraints -> false, 'placeholder -> "Email")
+                                </div>
+
+                                <div class="input-group">
+                                    <i class="fa fa-lock"></i>
+                                    @helper.inputPassword(logForm("password"), '_label -> "", '_showConstraints -> false, 'placeholder -> "Password")
+                                </div>
+
+                                <br/>
+                                <input type="submit" class="" value="Login to your account" name="submit" id="submit" />
+
+                                <p class="footer">We respect your privacy.<br/>We hate spam as much as you do.</p>
+
+                                <p class="footer" ><a href="@routes.SignUp.signup">Sign Up</a></p>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+</body>
+
+
+
+
+}

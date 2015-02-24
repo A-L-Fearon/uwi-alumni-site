@@ -10,3 +10,10 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Custom Pages
 GET /landing                        controllers.Application.landing()
+
+GET /signup                         controllers.SignUp.signup()
+POST /signup                        controllers.SignUp.save()
+
+
+GET /login                          controllers.LoginCtrl.login()
+POST /auth                         controllers.LoginCtrl.authenticate()

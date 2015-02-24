@@ -25,4 +25,7 @@ public class User extends Model{
     public int sessionId;
     public byte[] picture;
 
+
+    public static Finder<String,User> find = new Finder<>(String.class, User.class);
+
 }
