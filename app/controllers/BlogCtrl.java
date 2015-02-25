@@ -1,6 +1,5 @@
 package controllers;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import models.BlogPost;
 import models.User;
 import play.data.Form;
@@ -21,12 +20,12 @@ public class BlogCtrl extends Controller {
     public static Result newPost() {
         User user = User.find.byId(session("username"));
         Form<User> userForm = useForm.fill(user);
-        return ok(blogviewhere.render(postForm,userForm));
+        return ok();//(blogviewhere.render(postForm,userForm));
     }
 
     public static Result blogs(){
         List<BlogPost> postList = BlogPost.find.findList();
-        return ok(blogviewhere.render(postList));
+        return ok();//(blogviewhere.render(postList));
     }
 
     //todo create views for blog
@@ -37,14 +36,14 @@ public class BlogCtrl extends Controller {
         Form<BlogPost> boundForm = postForm.bindFromRequest();
         if(boundForm.hasErrors()) {
             flash("error", String.format("Please correct the form below."));
-            return badRequest(blogviewhere.render(postForm,userForm));
+            return badRequest();//(blogviewhere.render(postForm,userForm));
         }
         BlogPost post = boundForm.get();
         post.username = session("username");
         post.userId = session("userid");
         post.save();
         flash("success","Post made");
-        return ok(blogviewhere.render(postForm,userForm));
+        return ok();//(blogviewhere.render(postForm,userForm));
     }
 
 }
